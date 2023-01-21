@@ -1,0 +1,4 @@
+- name: import erlang
+  ansible.builtin.import_role:
+    name: common
+    task_from: erlang

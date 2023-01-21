@@ -1,0 +1,19 @@
+- name: install Erlang
+  ansible.builtin.yum:
+    name: erlang
+    state: installed
+
+- name: App Pre-Req
+  ansible.builtin.include_tasks: "app-prereq.yml"
+
+- name: download and install dependencies
+  ansible.builtin.shell:
+    - go init dispatch
+    - go get
+    - go build
+
+- name: SystemD Setup
+  ansible.builtin.include_tasks: "systemd.yml"
+
+
+
