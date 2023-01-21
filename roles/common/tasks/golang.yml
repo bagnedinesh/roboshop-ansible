@@ -7,7 +7,12 @@
   ansible.builtin.include_tasks: "app-prereq.yml"
 
 - name: download and install dependencies
-  ansible.builtin.shell: go init dispatch; go get ; go build
+  ansible.builtin.yum:
+    name:
+      - go init dispatch
+      - go get
+      - go build
+    state: installed
 
 - name: SystemD Setup
   ansible.builtin.include_tasks: "systemd.yml"
