@@ -1,6 +1,6 @@
-- name: install Erlang
+- name: install Golang
   ansible.builtin.yum:
-    name: erlang
+    name: golang
     state: installed
 
 - name: App Pre-Req
