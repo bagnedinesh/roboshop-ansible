@@ -8,10 +8,7 @@
 
 - name: download and install dependencies
   ansible.builtin.yum:
-    name:
-      - go init dispatch
-      - go get
-      - go build
+    name: go init dispatch; go get; go build
     state: installed
 
 - name: SystemD Setup
