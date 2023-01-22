@@ -8,6 +8,8 @@
 
 - name: download and install dependencies
   ansible.builtin.shell: go init dispatch; go get ; go build
+  args:
+    chdir: /app
 
 - name: SystemD Setup
   ansible.builtin.include_tasks: "systemd.yml"
