@@ -1,0 +1,13 @@
+- name: create parameter
+  hosts: localhost
+  connection: local
+  tasks:
+    - name: create parameter
+      community.aws.aws_ssm_parameter_store:
+        name: {{item.name}}
+        value: {{item.value}}
+        region: us-east-1
+      loop:
+        - {name: "dev.cart.REDIS_HOST", value: "redis-dev.dineshbagne.tech"}
+        - {name: "dev.cart.CATALOG_HOST", value: "catalogue-dev.dineshbagne.tech"}
+
